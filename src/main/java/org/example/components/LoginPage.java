@@ -1,4 +1,6 @@
 package org.example.components;
 
-public class LoginPage {
+import org.example.core.BaseActions;
+
+public class LoginPage extends BaseActions {
 }
