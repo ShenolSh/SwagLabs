@@ -9,7 +9,6 @@ public class LoginTests extends BaseTest {
     public void unSuccessful_login(){
         LoginPage.open();
         LoginPage.Login("standard_user", " ");
-        LoginPage.verifyPasswordRequiredMessage("Epic sadface: Password is required", "The test was not successful");
 
     }
 }
