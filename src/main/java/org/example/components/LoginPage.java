@@ -22,10 +22,14 @@ public class LoginPage extends BaseActions {
         type(PASSWORD_FIELD, password);
         click(LOGIN_BUTTON);
     }
-    public static void verifyPasswordRequiredMessage(String expectedMessageForRequiredPassword, String messageOnFailure){
+    public static void verifyPasswordRequiredMessage(String expectedMessageForRequiredPassword, String messageOnFailureWhileGettingTheRequiredPasswordMessage){
         String actualMessageForRequiredPassword = waitForElementVisibility(ERROR_MESSAGE, 10).getText();
-        Assert.assertEquals(actualMessageForRequiredPassword, expectedMessageForRequiredPassword, messageOnFailure);
+        Assert.assertEquals(actualMessageForRequiredPassword, expectedMessageForRequiredPassword, messageOnFailureWhileGettingTheRequiredPasswordMessage);
     }
 
 
+    public static void verifyUserNameRequiredMessage(String expectedMessageForRequiredUserName, String messageOnFailureWhileGettingTheRequiredUserNameMessage) {
+        String actualMessageForRequiredUserName = waitForElementVisibility(ERROR_MESSAGE, 10).getText();
+        Assert.assertEquals(actualMessageForRequiredUserName, expectedMessageForRequiredUserName, messageOnFailureWhileGettingTheRequiredUserNameMessage);
+    }
 }
