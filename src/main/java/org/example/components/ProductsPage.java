@@ -11,4 +11,6 @@ public class ProductsPage extends BaseActions {
         String actualResultAfterLoggingIn = waitForElementVisibility(PRODUCTS, 10).getText();
         Assert.assertEquals(actualResultAfterLoggingIn, expectedProductsContainerOnSuccessfulLogin, messageOnFailedLogin);
     }
+
+
 }
