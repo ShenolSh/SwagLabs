@@ -13,6 +13,12 @@ public class LoginTests extends BaseTest {
         LoginPage.Login("standard_user", "secret_sauce" );
         ProductsPage.verifySuccessfulLoginStandardUser("Products", "The logging in test with standard_user account was not successful");
     }
+    @Test
+    public void login_test_locked_out_user(){
+        LoginPage.open();
+        LoginPage.Login("locked_out_user", "secret_sauce" );
+        LoginPage.verifyErrorMessageForLockedOutUser("Epic sadface: Sorry, this user has been locked out.", "The logging in test with locked_out_user account was not successful");
+    }
 
 
 }

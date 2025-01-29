@@ -13,6 +13,7 @@ public class LoginPage extends BaseActions {
     private static final By LOGIN_BUTTON = By.id("login-button");
     private static final By ERROR_MESSAGE = By.cssSelector(".error-message-container.error");
 
+
     public static void open() {
         Browser.driver.get(loginPageURL);
     }
@@ -22,7 +23,8 @@ public class LoginPage extends BaseActions {
         type(PASSWORD_FIELD, password);
         click(LOGIN_BUTTON);
     }
-    public static void verifyPasswordRequiredMessage(String expectedMessageForRequiredPassword, String messageOnFailureWhileGettingTheRequiredPasswordMessage){
+
+    public static void verifyPasswordRequiredMessage(String expectedMessageForRequiredPassword, String messageOnFailureWhileGettingTheRequiredPasswordMessage) {
         String actualMessageForRequiredPassword = waitForElementVisibility(ERROR_MESSAGE, 10).getText();
         Assert.assertEquals(actualMessageForRequiredPassword, expectedMessageForRequiredPassword, messageOnFailureWhileGettingTheRequiredPasswordMessage);
     }
@@ -31,5 +33,11 @@ public class LoginPage extends BaseActions {
     public static void verifyUserNameRequiredMessage(String expectedMessageForRequiredUserName, String messageOnFailureWhileGettingTheRequiredUserNameMessage) {
         String actualMessageForRequiredUserName = waitForElementVisibility(ERROR_MESSAGE, 10).getText();
         Assert.assertEquals(actualMessageForRequiredUserName, expectedMessageForRequiredUserName, messageOnFailureWhileGettingTheRequiredUserNameMessage);
+    }
+
+    public static void verifyErrorMessageForLockedOutUser(String expectedMessageWhenLockedOutUserLogin, String messageOnFailureOfTheTest) {
+        String actualMessageWhenLockedOutUserLogin = waitForElementVisibility(ERROR_MESSAGE, 10).getText();
+        Assert.assertEquals(expectedMessageWhenLockedOutUserLogin, actualMessageWhenLockedOutUserLogin, messageOnFailureOfTheTest);
+
     }
 }
