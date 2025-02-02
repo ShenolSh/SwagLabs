@@ -7,12 +7,17 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 
+    /**
+     * This tests a successfull login with standard user.
+     */
     @Test
     public void successful_login_test_standard_user(){
         LoginPage.open();
         LoginPage.Login("standard_user", "secret_sauce" );
         ProductsPage.verifySuccessfulLoginStandardUser("Products", "The logging in test with standard_user account was not successful");
     }
+
+
     @Test
     public void login_test_locked_out_user(){
         LoginPage.open();
