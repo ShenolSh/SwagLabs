@@ -11,8 +11,8 @@ public class BaseTest {
         Browser.open();
     }
 
-    @AfterMethod
-    public void tearDown() {
-        Browser.quit();
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//        Browser.quit();
+//    }
 }
