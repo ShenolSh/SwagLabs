@@ -20,4 +20,10 @@ public class LoginTests extends BaseTest {
         LoginPage.verifyUserNameRequiredMessage("Epic sadface: Username is required", "The test for error message for required user name was failed");
     }
 
+    @Test
+    public void unsuccessful_login_without_username_and_password() {
+        LoginPage.open();
+        LoginPage.Login("","");
+        LoginPage.verifyUserNameAndPasswordRequiredMessage("Epic sadface: Username is required", "The test for error message for the user name and password failed");
+    }
 }
