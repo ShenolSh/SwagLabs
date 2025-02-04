@@ -40,4 +40,9 @@ public class LoginPage extends BaseActions {
         Assert.assertEquals(expectedMessageWhenLockedOutUserLogin, actualMessageWhenLockedOutUserLogin, messageOnFailureOfTheTest);
 
     }
+
+    public static void verifyUserNameAndPasswordRequiredMessage(String expectedMessageForRequiredUserNameAndPassword, String messageOnFailureWhileGettingTheRequiredUserNameAndPasswordMessage) {
+        String actualMessageForRequiredUserName = waitForElementVisibility(ERROR_MESSAGE, 10).getText();
+        Assert.assertEquals(actualMessageForRequiredUserName, expectedMessageForRequiredUserNameAndPassword, messageOnFailureWhileGettingTheRequiredUserNameAndPasswordMessage);
+    }
 }
