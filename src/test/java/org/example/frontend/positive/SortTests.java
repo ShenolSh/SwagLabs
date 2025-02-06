@@ -4,7 +4,6 @@ import org.example.components.LoginPage;
 import org.example.components.ProductsPage;
 import org.example.core.BaseTest;
 import org.testng.annotations.Test;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,7 +30,6 @@ public class SortTests extends BaseTest {
         LoginPage.open();
         LoginPage.Login("standard_user", "secret_sauce");
         ProductsPage.SortZToA();
-        ;
         List<String> expectedProductsAlphabeticalOrderAToZ = Arrays.asList
                 ("Test.allTheThings() T-Shirt (Red)",
                         "Sauce Labs Onesie",
