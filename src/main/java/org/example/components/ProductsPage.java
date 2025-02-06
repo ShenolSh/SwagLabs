@@ -28,23 +28,20 @@ public class ProductsPage extends BaseActions {
         productSortContainer.selectByValue("az");
     }
 
-    public static void verifySuccessfulSortAToZ() {
-        List<WebElement> itemTitles = Browser.driver.findElements(PRODUCTS_TITLES);
-        ArrayList<String> actualProductsTitles = new ArrayList<>();
-        for (WebElement itemTitle : itemTitles) {
-
-            actualProductsTitles.add(itemTitle.getText());
-        }
-        ArrayList<String> productsTitle = new ArrayList<>(Arrays.asList("Sauce Labs Backpack",
-                "Sauce Labs Bike Light",
-                "Sauce Labs Bolt T-Shirt",
-                "Sauce Labs Fleece Jacket",
-                "Sauce Labs Onesie",
-                "Test.allTheThings() T-Shirt (Red)"));
-
+    public static void SortZToA() {
+        Select productSortContainer = new Select(Browser.driver.findElement(PRODUCT_SORT_CONTAINER));
+        productSortContainer.selectByValue("za");
     }
 
+    public static void verifySuccessfulSortAToZ(List<String> expectedProductsAlphabeticalOrderAToZ, String messageOnWrongSortingResult) {
+        List<WebElement> itemTitles = Browser.driver.findElements(PRODUCTS_TITLES);
+        ArrayList<String> actualProductsTitlesSortedAToZ = new ArrayList<>();
+        for (WebElement itemTitle : itemTitles) {
+            actualProductsTitlesSortedAToZ.add(itemTitle.getText());
+        }
+        Assert.assertEquals(actualProductsTitlesSortedAToZ, expectedProductsAlphabeticalOrderAToZ, messageOnWrongSortingResult);
 
+    }
 
 
 }
