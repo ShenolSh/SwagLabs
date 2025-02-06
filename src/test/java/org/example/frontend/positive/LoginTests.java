@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
 
     /**
-     * This tests a successfull login with standard user.
+     * This tests a successful login with a standard user.
      */
     @Test
     public void successful_login_test_standard_user(){
