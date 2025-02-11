@@ -49,5 +49,20 @@ public class ProductsPage extends BaseActions {
         }
         Assert.assertEquals(actualProductsPriceSortedLowToHigh, expectedProductsPriceLowToHigh, messageOnWrongSortingLowToHighResult);
     }
+
+    public static void SortPriceHighToLow() {
+        Select productSortContainer = new Select(Browser.driver.findElement(PRODUCT_SORT_CONTAINER));
+        productSortContainer.selectByValue("hilo");
+    }
+
+    public static void verifySuccessfulSortPriceHighToLow(List<String> expectedProductsPriceHighToLow, String messageOnWrongSortingHighToLowResult) {
+        List<WebElement> itemTitles = Browser.driver.findElements(PRODUCTS_PRICE);
+        ArrayList<String> actualProductsPriceSortedHighToLow = new ArrayList<>();
+        for (WebElement itemTitle : itemTitles) {
+            actualProductsPriceSortedHighToLow.add(itemTitle.getText());
+        }
+        Assert.assertEquals(actualProductsPriceSortedHighToLow, expectedProductsPriceHighToLow, messageOnWrongSortingHighToLowResult);
+    }
+
 }
 
