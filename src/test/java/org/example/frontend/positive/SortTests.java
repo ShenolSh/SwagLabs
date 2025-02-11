@@ -51,6 +51,19 @@ public class SortTests extends BaseTest {
                         "$29.99",
                         "$49.99");
         ProductsPage.verifySuccessfulSortPriceLowToHigh(expectedProductsPriceLowToHigh, "The sorting by price Low to High is not as expected");
+    } @Test
+    public void sortPriceHighToLowWithStandardUser() {
+        LoginPage.open();
+        LoginPage.Login("standard_user", "secret_sauce");
+        ProductsPage.SortPriceHighToLow();
+        List<String> expectedProductsPriceHighToLow = Arrays.asList
+                (       "$49.99",
+                        "$29.99",
+                        "$15.99",
+                        "$15.99",
+                        "$9.99",
+                        "$7.99");
+        ProductsPage.verifySuccessfulSortPriceHighToLow(expectedProductsPriceHighToLow, "The sorting by price High to Low is not as expected");
     }
 
 
