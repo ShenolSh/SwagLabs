@@ -22,7 +22,6 @@ public class SortTests extends BaseTest {
                         "Sauce Labs Onesie",
                         "Test.allTheThings() T-Shirt (Red)");
         ProductsPage.verifySuccessfulSortAToZ(expectedProductsAlphabeticalOrderAToZ, "The products.csv are not sorted as expected");
-
     }
 
     @Test
@@ -37,8 +36,21 @@ public class SortTests extends BaseTest {
                         "Sauce Labs Bolt T-Shirt",
                         "Sauce Labs Bike Light",
                         "Sauce Labs Backpack");
-        ProductsPage.verifySuccessfulSortAToZ(expectedProductsAlphabeticalOrderAToZ, "The products.csv are not sorted as expected");
-
+        ProductsPage.verifySuccessfulSortAToZ(expectedProductsAlphabeticalOrderAToZ, "The products are not sorted as expected");
+    }
+    @Test
+    public void sortPriceLowToHighWithStandardUser() {
+        LoginPage.open();
+        LoginPage.Login("standard_user", "secret_sauce");
+        ProductsPage.SortPriceLowToHigh();
+        List<String> expectedProductsPriceLowToHigh = Arrays.asList
+                (       "$7.99",
+                        "$9.99",
+                        "$15.99",
+                        "$15.99",
+                        "$29.99",
+                        "$49.99");
+        ProductsPage.verifySuccessfulSortPriceLowToHigh(expectedProductsPriceLowToHigh, "The sorting by price Low to High is not as expected");
     }
 
 
