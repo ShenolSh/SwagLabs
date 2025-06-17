@@ -17,10 +17,11 @@ public class Main {
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 //        driver.get("https://www.saucedemo.com/");
 //        driver.findElements(By.id("user-name"));
-
+        final char COMMA_DELIMETER = ',';
         ArrayList<String> words = new ArrayList<>(Arrays.asList("banana", "apple", "cherry"));
         Collections.sort(words);
         System.out.println(words);
+
 
     }
 }
